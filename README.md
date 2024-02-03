@@ -2,6 +2,20 @@
 
 - Create React App
 - Configure Tailwaind CSS
+- Header
+- Routing of App
+- Login Form
+- Sign up form
+- validation (using Regex and useRef)
+- useRef Hook
+- Firebase Setup
+- Deploying our App to Production
+- Create our Signup User Account
+- Implement Sign in user API
+- Setup Redux store with UserSlice
+- Implement Signout
+- Update Profile
+
 
 # Feature
 
