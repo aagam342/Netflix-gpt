@@ -9,7 +9,7 @@ import {
 import { auth } from "../utils/firebase";
 import { addUser } from "../utils/userSlice";
 import { useDispatch } from "react-redux";
-import { USER_AVATAR } from "../utils/constants";
+import { LOGIN_PAGE_URL, USER_AVATAR } from "../utils/constants";
 
 const Login = () => {
   const [isSignInForm, setisSignInForm] = useState(true);
@@ -39,8 +39,7 @@ const Login = () => {
 
           updateProfile(user, {
             displayName: name.current.value,
-            photoURL:
-              USER_AVATAR,
+            photoURL: USER_AVATAR,
           })
             .then(() => {
               // Profile updated!
@@ -89,11 +88,7 @@ const Login = () => {
     <div>
       <Header />
       <div>
-        <img
-          className="absolute"
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/9134db96-10d6-4a64-a619-a21da22f8999/a449fabb-05e4-4c8a-b062-b0bec7d03085/IN-en-20240115-trifectadaily-perspective_alpha_website_large.jpg"
-          alt="bg"
-        />
+        <img className="absolute" src={LOGIN_PAGE_URL} alt="bg" />
       </div>
       <form
         onSubmit={(e) => e.preventDefault()}
