@@ -74,7 +74,7 @@ const Login = () => {
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
-          console.log(user);
+          // console.log(user);
           // ...
         })
         .catch((error) => {
@@ -92,7 +92,7 @@ const Login = () => {
       </div>
       <form
         onSubmit={(e) => e.preventDefault()}
-        className="p-12 mx-auto my-28 w-4/12 absolute bg-black left-0 right-0 text-white rounded-lg bg-opacity-85"
+        className="p-12 mx-auto my-28 w-full md:w-4/12 absolute bg-black left-0 right-0 text-white rounded-lg bg-opacity-85"
       >
         <h1 className="text-3xl font-bold py-4">
           {isSignInForm ? "Sign In" : "Sign Up"}

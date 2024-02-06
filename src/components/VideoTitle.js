@@ -2,24 +2,14 @@ import React from "react";
 
 const VideoTitle = ({ title, overview }) => {
   return (
-    <div className="w-screen aspect-video pt-[15%] px-20 absolute text-white bg-gradient-to-r from-black ">
-      <h1 className="text-5xl font-bold ">{title}</h1>
-      <p className="w-1/3 py-6 ">{overview}</p>
-      <div className="flex">
-        <button className=" flex px-4 p-1 bg-white text-black  rounded-sm font-semibold hover:bg-opacity-80">
-          <img
-            className="w-7 p-1"
-            src="https://img.icons8.com/ios-glyphs/30/play--v1.png"
-            alt="play--v1"
-          />
-          Play
+    <div className="w-screen aspect-video pt-[15%] px-6 md:px-20 absolute text-white bg-gradient-to-r from-black ">
+      <h1 className="text-2xl md:text-5xl font-bold ">{title}</h1>
+      <p className="hidden md:inline-block w-1/3 py-6 ">{overview}</p>
+      <div className="my-4 md:m-0">
+        <button className=" bg-white text-black py-1 md:py-4 px-3 md:px-12 text-xl  rounded-lg hover:bg-opacity-80">
+          ▶️ Play
         </button>
-        <button className="flex px-4 p-1 bg-gray-700 text-white  rounded-sm mx-2 font-semibold hover: bg-opacity-80">
-          <img
-            className="w-7 p-1"
-            src="https://img.icons8.com/ios/50/info--v1.png"
-            alt="info--v1"
-          />
+        <button className="hidden md:inline-block mx-2  bg-gray-500 text-white p-4 px-12 text-xl bg-opacity-50 rounded-lg">
           More Info
         </button>
       </div>

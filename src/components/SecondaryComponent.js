@@ -10,7 +10,7 @@ const SecondaryComponent = () => {
   return (
     movies.nowPlayingMovies && (
       <div className="bg-black w-screen">
-        <div className="relative z-50 pl-12 -mt-52">
+        <div className="relative z-50 pl-4  md:pl-12 mt-0 md:-mt-52">
           <MovieList title={"Now Playing"} movies={movies.nowPlayingMovies} />
           <MovieList
             title={"Top Rated Movies"}
