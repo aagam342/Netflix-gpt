@@ -6,7 +6,7 @@ const SecondaryComponent = () => {
   const movies = useSelector((store) => store.movies);
 
   if (!movies) return;
-  console.log(movies);
+  // console.log(movies);
   return (
     movies.nowPlayingMovies && (
       <div className="bg-black w-screen">

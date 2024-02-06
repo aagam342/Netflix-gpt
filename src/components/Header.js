@@ -50,6 +50,7 @@ const Header = () => {
       }
     });
     return () => unsubscribe();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -59,7 +60,7 @@ const Header = () => {
         <div className="flex p-4 m-2">
           {showGptSearch && (
             <select
-              className="mx-2 bg-gray-500 text-white rounded-md opacity-90"
+              className="mx-2 bg-gray-800 text-white rounded-md opacity-90"
               onChange={handleLanguageChange}
             >
               {SUPPORTED_LANGUAGE.map((lang) => (
