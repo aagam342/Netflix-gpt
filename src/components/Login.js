@@ -1,5 +1,4 @@
 import React, { useRef, useState } from "react";
-import Header from "./Header";
 import { checkValidData } from "../utils/validate";
 import {
   createUserWithEmailAndPassword,
@@ -10,6 +9,7 @@ import { auth } from "../utils/firebase";
 import { addUser } from "../utils/userSlice";
 import { useDispatch } from "react-redux";
 import { LOGIN_PAGE_URL, USER_AVATAR } from "../utils/constants";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [isSignInForm, setisSignInForm] = useState(true);
@@ -21,6 +21,7 @@ const Login = () => {
   const email = useRef(null);
   const password = useRef(null);
   const name = useRef(null);
+  const navigate = useNavigate();
 
   const handleBtnClick = () => {
     const message = checkValidData(email.current.value, password.current.value);
@@ -52,6 +53,7 @@ const Login = () => {
                   photoURL: photoURL,
                 })
               );
+              navigate("/browse");
             })
             .catch((error) => {
               // An error occurred
@@ -76,6 +78,7 @@ const Login = () => {
           const user = userCredential.user;
           // console.log(user);
           // ...
+          navigate("/browse");
         })
         .catch((error) => {
           const errorCode = error.code;
@@ -84,11 +87,15 @@ const Login = () => {
         });
     }
   };
+
   return (
     <div>
-      <Header />
       <div>
-        <img className="absolute" src={LOGIN_PAGE_URL} alt="bg" />
+        <img
+          className="absolute top-0 left-0 object-cover w-full h-full "
+          src={LOGIN_PAGE_URL}
+          alt="bg"
+        />
       </div>
       <form
         onSubmit={(e) => e.preventDefault()}
