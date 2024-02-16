@@ -2,11 +2,10 @@ import React from "react";
 import { LOGIN_PAGE_URL } from "../utils/constants";
 import GptSearchBar from "./GptSearchBar";
 import GptMovieSuggestion from "./GptMovieSuggestion";
-import { useSelector } from "react-redux";
+import {  useSelector } from "react-redux";
 import SelectedMovie from "./SelectedMovie";
 
 const GptSearch = () => {
-  const movies = useSelector((store) => store.movies);
   const selectedMovieId = useSelector((store) => store.movies?.selectedMovieId);
   return (
     <>

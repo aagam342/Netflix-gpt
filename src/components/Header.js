@@ -9,8 +9,8 @@ import {
   SUPPORTED_LANGUAGE,
   USER_AVATAR,
 } from "../utils/constants";
-import { toggleGptSearch } from "../utils/gptSlice";
 import { changeLanguage } from "../utils/configSlice";
+import { addSelectedMovieId } from "../utils/moviesSlice";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -30,10 +30,10 @@ const Header = () => {
       });
   };
   const handleGptSearchClick = () => {
-    dispatch(toggleGptSearch(true));
+    dispatch(addSelectedMovieId(null));
   };
   const handleHomePageClick = () => {
-    dispatch(toggleGptSearch(false));
+    dispatch(addSelectedMovieId(null));
   };
 
   const handleLanguageChange = (e) => {
