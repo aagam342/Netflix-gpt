@@ -4,8 +4,8 @@ import Header from "./Header";
 
 const Body = () => {
   return (
-    <div>
-      <Header/>
+    <div className="font-serif">
+      <Header />
       <Outlet />
     </div>
   );

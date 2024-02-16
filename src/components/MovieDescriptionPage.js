@@ -12,7 +12,7 @@ const MovieDescriptionPage = () => {
       <div className="">
         <Header />
       </div>
-      <div className=" pt-52 md:pt-0">
+      <div className=" pt-52 md:pt-0 -z-10">
         <VideoBackground movie_id={movieId} />
       </div>
     </div>

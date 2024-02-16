@@ -1,9 +1,14 @@
 import React from "react";
 import MovieCard from "./MovieCard";
-import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import {  addSelectedMovieId } from "../utils/moviesSlice";
 
 const MovieList = ({ title, movies }) => {
-  console.log(movies);
+  // console.log(movies);
+  const dispatch = useDispatch();
+  const handleMovieId = (movie_id) => {
+    dispatch(addSelectedMovieId(movie_id));
+  };
 
   return (
     <div className="p-2 ">
@@ -11,9 +16,9 @@ const MovieList = ({ title, movies }) => {
       <div className="flex overflow-x-scroll no-scrollbar ">
         <div className="flex gap-4 ">
           {movies?.map((movie) => (
-            <Link to={"/movie/" + movie.id} key={movie.id}>
+            <div onClick={() => handleMovieId(movie.id)} key={movie.id}>
               <MovieCard key={movie.id} posterPath={movie.poster_path} />
-            </Link>
+            </div>
           ))}
         </div>
       </div>
