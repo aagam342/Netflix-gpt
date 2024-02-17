@@ -11,6 +11,7 @@ import {
 } from "../utils/constants";
 import { changeLanguage } from "../utils/configSlice";
 import { addSelectedMovieId } from "../utils/moviesSlice";
+import { toggleGptSearch } from "../utils/gptSlice";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -30,9 +31,11 @@ const Header = () => {
       });
   };
   const handleGptSearchClick = () => {
+    dispatch(toggleGptSearch(true));
     dispatch(addSelectedMovieId(null));
   };
   const handleHomePageClick = () => {
+    dispatch(toggleGptSearch(false));
     dispatch(addSelectedMovieId(null));
   };
 
