@@ -50,17 +50,18 @@
 - Made our Site responsive
 
 # Feature
-
+- Header
 - Login Page
   - Sign In / Sign Up form
   - Redirect to browse page
 - Browse(after authentication)
-  - Header
   - Main Movie
     - Trailer in bg
     - Name and Description with play button
   - Movie Suggestions
     - MovieList \* N
+- Movie Description Page
+- Movie Playback page
 - Netflix GPT page
   - Search bar
   - Movie Suggestion

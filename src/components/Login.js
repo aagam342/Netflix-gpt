@@ -92,7 +92,7 @@ const Login = () => {
     <div>
       <div>
         <img
-          className="absolute top-0 left-0 object-cover w-full h-full "
+          className="absolute top-0 left-0 object-cover w-full  "
           src={LOGIN_PAGE_URL}
           alt="bg"
         />
