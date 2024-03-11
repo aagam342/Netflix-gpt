@@ -1,19 +1,27 @@
 import { useDispatch } from "react-redux";
 import { API_OPTIONS } from "../utils/constants";
 import openai from "../utils/openAi";
-import { addGptMovieResult } from "../utils/gptSlice";
+import { addGptError, addGptMovieResult } from "../utils/gptSlice";
+import { useState } from "react";
 
 const useGptSearchBar = (searchText) => {
+  const [searchMovieTMDBError, setSearchMovieTMDBError] = useState(null);
   const dispatch = useDispatch();
   const searchMovieTMDB = async (movie) => {
-    const data = await fetch(
-      "https://api.themoviedb.org/3/search/movie?query=" +
-        movie +
-        "&include_adult=false&language=en-US&page=1",
-      API_OPTIONS
-    );
-    const json = await data.json();
-    return json.results;
+    try {
+      const data = await fetch(
+        "https://api.themoviedb.org/3/search/movie?query=" +
+          movie +
+          "&include_adult=false&language=en-US&page=1",
+        API_OPTIONS
+      );
+      const json = await data.json();
+      return json.results;
+    } catch (error) {
+      setSearchMovieTMDBError(error.message);
+      // Update the error state
+      dispatch(addGptError(error));
+    }
   };
 
   const handleGptSearchClick = async () => {
@@ -35,7 +43,7 @@ const useGptSearchBar = (searchText) => {
       addGptMovieResult({ movieNames: gptMovies, movieResults: tmdbResults })
     );
   };
-    return { handleGptSearchClick };
+  return { handleGptSearchClick };
 };
 
 export default useGptSearchBar;

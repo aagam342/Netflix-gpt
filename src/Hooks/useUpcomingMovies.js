@@ -3,19 +3,24 @@ import { API_OPTIONS } from "../utils/constants";
 import { addUpcomingMovies } from "../utils/moviesSlice";
 import { useEffect } from "react";
 
-const useUpcomingMovies = () => {
+const useUpcomingMovies = (setUpcomingMoviesError) => {
   const dispatch = useDispatch();
-  const upcomingMovies = useSelector(
-    (store) => store.movies.upcomingMovies
-  );
+  const upcomingMovies = useSelector((store) => store.movies.upcomingMovies);
   const getUpcomingMovies = async () => {
-    const data = await fetch(
-      "https://api.themoviedb.org/3/movie/upcoming?page=1",
-      API_OPTIONS
-    );
-    const json = await data.json();
+    try {
+      const data = await fetch(
+        "https://api.themoviedb.org/3/movie/upcoming?page=1",
+        API_OPTIONS
+      );
+      if (!data.ok) {
+        throw new Error(`Failed to fetch popular movies: ${data.status}`);
+      }
+      const json = await data.json();
 
-    dispatch(addUpcomingMovies(json.results));
+      dispatch(addUpcomingMovies(json.results));
+    } catch (error) {
+      setUpcomingMoviesError(error.message); // Update the error state
+    }
   };
 
   useEffect(() => {
