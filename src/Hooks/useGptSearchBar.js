@@ -5,7 +5,9 @@ import { addGptError, addGptMovieResult } from "../utils/gptSlice";
 import { useState } from "react";
 
 const useGptSearchBar = (searchText) => {
+  // eslint-disable-next-line no-unused-vars
   const [searchMovieTMDBError, setSearchMovieTMDBError] = useState(null);
+
   const dispatch = useDispatch();
   const searchMovieTMDB = async (movie) => {
     try {

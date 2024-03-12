@@ -25,6 +25,6 @@ const usePopularMovies = (setPopularMoviesError) => {
 
   useEffect(() => {
     !popularMovies && getPopularMovies();
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 };
 export default usePopularMovies;

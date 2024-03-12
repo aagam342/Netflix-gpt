@@ -18,7 +18,7 @@ const useSelectedMovie = (movie_id) => {
 
   useEffect(() => {
     getSelectedMovie();
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 };
 
 export default useSelectedMovie;

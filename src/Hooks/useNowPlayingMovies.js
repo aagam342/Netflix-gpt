@@ -14,9 +14,9 @@ const useNowPlayingMovies = (setNowPlayingError) => {
         "https://api.themoviedb.org/3/movie/now_playing?page=1",
         API_OPTIONS
       );
-       if (!data.ok) {
-         throw new Error(`Failed to fetch popular movies: ${data.status}`);
-       }
+      if (!data.ok) {
+        throw new Error(`Failed to fetch popular movies: ${data.status}`);
+      }
       const json = await data.json();
       // console.log(json.results);
 
@@ -28,6 +28,6 @@ const useNowPlayingMovies = (setNowPlayingError) => {
 
   useEffect(() => {
     !nowPlayingMovies && getNowPlayingMovies();
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 };
 export default useNowPlayingMovies;

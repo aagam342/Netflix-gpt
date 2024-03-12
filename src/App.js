@@ -1,7 +1,6 @@
 import { Provider } from "react-redux";
 import Body from "./components/Body";
 import appStore from "./utils/appStore";
-import Header from "./components/Header";
 import Login from "./components/Login";
 import Browse from "./components/Browse";
 import MovieDescriptionPage from "./components/MovieDescriptionPage";
