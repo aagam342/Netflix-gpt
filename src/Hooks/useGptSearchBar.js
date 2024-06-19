@@ -3,6 +3,7 @@ import { API_OPTIONS } from "../utils/constants";
 import openai from "../utils/openAi";
 import { addGptError, addGptMovieResult } from "../utils/gptSlice";
 import { useState } from "react";
+import { GoogleGenerativeAI } from "@google/generative-ai";
 
 const useGptSearchBar = (searchText) => {
   // eslint-disable-next-line no-unused-vars
@@ -26,17 +27,19 @@ const useGptSearchBar = (searchText) => {
     }
   };
 
+  const genAI = new GoogleGenerativeAI(process.env.REACT_APP_OPENAI_KEY);
   const handleGptSearchClick = async () => {
-    const gptQuery =
+    const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+    const prompt =
       "Act as a movie recommendation system and some movies for  the query : " +
       searchText.current.value +
       ".only give me names of five movies ,comma separated like the example given ahead. Example result : Gadar, Sholay, Don , Golmaal, Koi Mil Gaya";
+    const result = await model.generateContent(prompt);
+    const response = await result.response;
+    const gptMoviesText = await response.text();
+    const gptMovies = gptMoviesText.split(",").map((movie) => movie.trim());
+    console.log(gptMovies);
 
-    const gptResults = await openai.chat.completions.create({
-      messages: [{ role: "user", content: gptQuery }],
-      model: "gpt-3.5-turbo",
-    });
-    const gptMovies = gptResults.choices?.[0]?.message.content.split(",");
     const promiseArray = gptMovies.map((movie) => searchMovieTMDB(movie));
     const tmdbResults = await Promise.all(promiseArray);
     console.log(tmdbResults);

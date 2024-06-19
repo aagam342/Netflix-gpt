@@ -8,8 +8,9 @@ import {
 import { auth } from "../utils/firebase";
 import { addUser } from "../utils/userSlice";
 import { useDispatch } from "react-redux";
-import { LOGIN_PAGE_URL, USER_AVATAR } from "../utils/constants";
+import {  USER_AVATAR } from "../utils/constants";
 import { useNavigate } from "react-router-dom";
+import LOGIN_PAGE_BG from "../images/LOGIN_PAGE_BACKGROUND.jpg"
 
 const Login = () => {
   const [isSignInForm, setisSignInForm] = useState(true);
@@ -94,7 +95,7 @@ const Login = () => {
       <div>
         <img
           className="absolute top-0 left-0 object-cover w-full  "
-          src={LOGIN_PAGE_URL}
+          src={LOGIN_PAGE_BG}
           alt="bg"
         />
       </div>
