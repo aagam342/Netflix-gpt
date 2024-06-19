@@ -28,12 +28,27 @@ const Browse = () => {
       topRatedMoviesError ||
       popularMoviesError ? (
         <div className="  text-black text-xl p-56  mx-20  flex flex-col items-center font-serif">
-          {(nowPlayingError ||
-            upcomingMoviesError ||
-            topRatedMoviesError ||
-            popularMoviesError) && (
-            <div>The Movie Database (TMDB) service is currently down.</div>
-          )}
+          {
+            <div className="error-message shadow-orange-300 shadow-lg bg-red-500 text-white p-10  rounded-lg  flex flex-col items-center font-serif">
+              <p className="mb-2 text-2xl ">
+                Please make sure you have the VPN enabled while using this app,
+                as it utilizes TMDB API which is currently banned , its for development purposes only.
+                Refresh after enabling the VPN.
+              </p>
+
+              <button
+                className="bg-white hover:scale-105 text-red-500 px-4 py-2 rounded-md hover:bg-red-100"
+                onClick={() =>
+                  window.open(
+                    "https://chromewebstore.google.com/detail/fdcgdnkidjaadafnichfpabhfomcebme",
+                    "_blank"
+                  )
+                }
+              >
+                Enable VPN ZenMate
+              </button>
+            </div>
+          }
         </div>
       ) : (
         <>
