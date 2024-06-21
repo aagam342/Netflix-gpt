@@ -23,10 +23,7 @@ const Browse = () => {
   dispatch(addSelectedMovieId(null));
   return (
     <div>
-      {nowPlayingError ||
-      upcomingMoviesError ||
-      topRatedMoviesError ||
-      popularMoviesError ? (
+      {nowPlayingError  ? (
         <div className="  text-black text-xl p-56  mx-20  flex flex-col items-center font-serif">
           {
             <div className="error-message shadow-orange-300 shadow-lg bg-red-500 text-white p-10  rounded-lg  flex flex-col items-center font-serif">
