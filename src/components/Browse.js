@@ -10,8 +10,11 @@ import { addSelectedMovieId } from "../utils/moviesSlice";
 
 const Browse = () => {
   const [nowPlayingError, setNowPlayingError] = useState(null);
+  // eslint-disable-next-line no-unused-vars
   const [upcomingMoviesError, setUpcomingMoviesError] = useState(null);
+  // eslint-disable-next-line no-unused-vars
   const [topRatedMoviesError, setTopRatedMoviesError] = useState(null);
+  // eslint-disable-next-line no-unused-vars
   const [popularMoviesError, setPopularMoviesError] = useState(null);
 
   useNowPlayingMovies(setNowPlayingError);
@@ -23,14 +26,14 @@ const Browse = () => {
   dispatch(addSelectedMovieId(null));
   return (
     <div>
-      {nowPlayingError  ? (
+      {nowPlayingError ? (
         <div className="  text-black text-xl p-56  mx-20  flex flex-col items-center font-serif">
           {
             <div className="error-message shadow-orange-300 shadow-lg bg-red-500 text-white p-10  rounded-lg  flex flex-col items-center font-serif">
               <p className="mb-2 text-2xl ">
                 Please make sure you have the VPN enabled while using this app,
-                as it utilizes TMDB API which is currently banned , its for development purposes only.
-                Refresh after enabling the VPN.
+                as it utilizes TMDB API which is currently banned , its for
+                development purposes only. Refresh after enabling the VPN.
               </p>
 
               <button

@@ -1,6 +1,5 @@
 import { useDispatch } from "react-redux";
 import { API_OPTIONS } from "../utils/constants";
-import openai from "../utils/openAi";
 import { addGptError, addGptMovieResult } from "../utils/gptSlice";
 import { useState } from "react";
 import { GoogleGenerativeAI } from "@google/generative-ai";
